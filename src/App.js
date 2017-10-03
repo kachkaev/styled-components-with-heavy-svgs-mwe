@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import TogglableButton from './TogglableButton';
-import PileOfOtherStyles from './PileOfOtherStyles';
 
 const Wrapper = styled.div``;
 const RowOfButtons = styled.div`
@@ -25,7 +24,6 @@ class App extends Component {
             ))}
           </RowOfButtons>
         ))}
-        <PileOfOtherStyles />
       </Wrapper>
     );
   }
