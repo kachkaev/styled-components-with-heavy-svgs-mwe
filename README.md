@@ -27,6 +27,7 @@ This will happen both for components with and without an SVG.
 Perhaps, the behaviour is a result of how the SVGs are cached.
 When a styled-component gets a new unique combination of props, the new CSS rule is appended to the page.
 This invalidates previously rendered SVGs, triggers `styles invalidated` and `styles recalculated`.
+Depending on the number of SVGs in the interface, the whole process may even take more than a second, which gets quite noticeable by a user.
 
 The performance problem has been observed for a few SVGs larger than 100KB, however the size seems to be not the only factor.
 A couple of rather large SVGs did not cause the performance issue, which suggests that the content of an SVG may matter more than the file size.
