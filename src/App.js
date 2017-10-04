@@ -7,12 +7,11 @@ import worldIcon from './images/world-icon.svg'
 
 import TogglableButton from './TogglableButton'
 import SpinningSquare from './SpinningSquare'
-import PileOfOtherStyles from './PileOfOtherStyles'
 
 const Wrapper = styled.div``
 const RowOfButtons = styled.div`text-align: center;`
 const SpinningSquareContainer = styled.div`
-  margin-top: 20px;
+  margin-top: 40px;
   text-align: center;
 `
 
@@ -20,7 +19,7 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
-        {map(['#7fc97f', '#beaed4', '#fdc086', '#fb8072'], color => (
+        {map(['#7fc97f', '#beaed4', '#fdc086'], color => (
           <RowOfButtons key={color}>
             {map([continents, worldIcon], backgroundImage =>
               map(['x', 'y'], irrelevantProp => (
@@ -34,10 +33,15 @@ class App extends Component {
             )}
           </RowOfButtons>
         ))}
+        <RowOfButtons>
+          <TogglableButton color="#fb8072" />
+          <TogglableButton color="#fb8072" />
+          <TogglableButton color="black" />
+          <TogglableButton color="black" />
+        </RowOfButtons>
         <SpinningSquareContainer>
           <SpinningSquare />
         </SpinningSquareContainer>
-        <PileOfOtherStyles />
       </Wrapper>
     )
   }

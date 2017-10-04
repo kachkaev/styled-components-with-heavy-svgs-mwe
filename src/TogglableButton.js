@@ -6,7 +6,7 @@ const TogglableButton = styled.div`
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 70px;
-  background-image: url('${p => p.backgroundImage }');
+  ${p => p.backgroundImage ? `background-image: url('${p.backgroundImage }');`: ''}
   display: inline-block;
   width: 60px;
   height: 60px;
