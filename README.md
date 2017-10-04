@@ -17,19 +17,20 @@ As it turned out, the reason for the poor performance was not the styled-compone
 It appears that the browser had to re-rasterize them each time a new rule was added to the stylesheet.
 A typical case is a switch with a unique combination of props that gets toggled for the first time (no matter if it contains an SVG or not).
 
+
 Live version
 ---
 
-_for Safari or Chrome on iOS_  
-https://kachkaev.github.io/styled-components-with-heavy-svgs-mwe/
+https://kachkaev.github.io/styled-components-with-heavy-svgs-mwe/  
+_the issue is only noticeable in  Safari or Chrome on iOS_  
 
-Instructions: click on any of 16 togglable circles, with or without continent outlines in the background.
+__Instructions:__ click on any of 16 togglable circles, with or without continent outlines in the background.
 Watch the spinning square in the bottom of the page while clicking.
 
 When a component with a new distinct set of props is clicked for the first time, the square will freeze for a few animation frames.
-This will happen both for components with and without an SVG. 
+This will happen both for components with and without an SVG in the background.
 
-Perhaps, the behaviour is a result of how the SVGs are cached.
+Perhaps, the behaviour is a result of how the SVGs are cached in iOS browsers.
 When a styled-component gets a new unique combination of props, the new CSS rule is appended to the page.
 This invalidates previously rendered SVGs, triggers `styles invalidated` and `styles recalculated`.
 Depending on the number of SVGs in the interface, the whole process may even take more than a second, which gets quite noticeable by a user.
