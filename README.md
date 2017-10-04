@@ -1,8 +1,11 @@
 Heavy SVGs in iOS Safari / Chrome demo
 ===
 
-This repo was created after [noticing a performance issue](https://github.com/styled-components/styled-components/issues/583#issuecomment-327097536) in a react project with [styled-components v2](https://github.com/styled-components/styled-components).
-The problem was only observed in Safari and Chrom on iOS 10 & 11 (iPhone 6s).
+This repo was created after [noticing a performance problem](https://github.com/styled-components/styled-components/issues/583#issuecomment-327097536) in a react project with [styled-components v2](https://github.com/styled-components/styled-components).
+The problem was only observed in Safari and Chrome on iOS 10 & 11 (iPhone 6s).
+Github issue: [styled-components#1207](https://github.com/styled-components/styled-components/issues/1207).
+
+---
 
 When clicking on the togglable buttons for the first time, re-rendering sometimes took over a second and everything else in the interface froze. See frame 15:
 
@@ -14,7 +17,9 @@ As it turned out, the reason for the poor performance was not the styled-compone
 It appears that the browser had to re-rasterize them each time a new rule was added to the stylesheet.
 A typical case is a switch with a unique combination of props that gets toggled for the first time (no matter if it contains an SVG or not).
 
-__Live version__  
+Live version
+---
+
 _for Safari or Chrome on iOS_  
 https://kachkaev.github.io/styled-components-with-heavy-svgs-mwe/
 
