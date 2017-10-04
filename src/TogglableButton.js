@@ -2,6 +2,7 @@ import { compose, withStateHandlers } from 'recompose';
 import styled from 'styled-components';
 
 const TogglableButton = styled.div`
+  transform: translate3d(0, 0, 0);
   background-color: ${p => (p.pressed ? 'white' : p.color)};
   background-repeat: no-repeat;
   background-position: center center;
